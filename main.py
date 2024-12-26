@@ -4,11 +4,13 @@ from spotipy.oauth2 import SpotifyOAuth
 import json
 import time
 import os
+from dotenv import load_dotenv
 
 from edit_tables import *
 
+load_dotenv()
 app = Flask(__name__)
-app.secret_key = "426a8ad0ef2246548501cd2a2ae877af"
+app.secret_key = os.getenv("CLIENT_SECRET")
 app.config['SESSION_COOKIE_NAME'] = 'spotify-session'
 
 # Spotify API credentials
