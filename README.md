@@ -3,6 +3,8 @@
 
 A Python project that uses the Spotify API to track the songs you skip in your playlists. At the end of a given time period (e.g., one week), you will receive a recap of the most skipped songs and have the option to delete them from your playlist.
 
+![alt text](image.png)
+
 ## Features
 Track the songs you skip in your Spotify playlists.
 Get a weekly recap of the most skipped songs.

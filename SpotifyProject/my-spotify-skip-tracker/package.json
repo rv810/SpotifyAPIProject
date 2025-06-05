@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.1",
     "@react-spring/three": "^10.0.1",
     "@react-three/fiber": "^9.1.2",
     "@shadergradient/react": "^2.0.25",

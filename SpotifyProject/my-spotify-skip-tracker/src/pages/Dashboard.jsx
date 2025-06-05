@@ -1,11 +1,15 @@
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom'
+
 export const Dashboard = () => {
+  const navigate = useNavigate()
+
     return ( 
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           height: '100vh',
-          display: 'flex',
           flexDirection: 'column',
         }}>
           <span style={{
@@ -24,6 +28,15 @@ export const Dashboard = () => {
           }}>
             So that your playlists change as quickly as your taste
           </span>
+          <Button variant="contained" style={{
+            marginTop: "20px",
+            background: "white",
+            color: "purple",
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+          }} onClick={() => navigate("/overview")}>
+            View Report
+          </Button>
         </div>
     )
 }

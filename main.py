@@ -7,12 +7,11 @@ import os
 import threading
 from dotenv import load_dotenv
 from flask_cors import CORS
-CORS(app)
-
 from edit_tables import *
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 app.secret_key = os.getenv("CLIENT_SECRET")
 app.config['SESSION_COOKIE_NAME'] = 'spotify-session'
 
@@ -75,7 +74,7 @@ def monitor_playback(token_info):
             
             # If this is a new track
             if new_track_id != current_track_id:
-                # If we had a previous track and it changed before it should have ended
+                # if previous track changed before it should have ended
                 if current_track_id and current_track_start_time:
                     elapsed_time = time.time() - current_track_start_time
                     if elapsed_time < (current_track_duration / 1000) - 10:  # 10 sec buffer
@@ -120,11 +119,16 @@ def stop_monitoring():
     monitoring_active = False
     return "Monitoring stopped"
 
-@app.route('/dashboard')
-def dashboard():
+@app.route('/playlists')
+def playlists():
+    print("received request for /playlists")
     token_info = session.get('token_info', {})
+
+    if not token_info:
+        return {"error": "Not authenticated"}
     sp = spotipy.Spotify(auth=token_info['access_token'])
     playlists = sp.current_user_playlists()
+    print(playlists)
     return json.dumps(playlists, indent=2)
 
 if __name__ == '__main__':
