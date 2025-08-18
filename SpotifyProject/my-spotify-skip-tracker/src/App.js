@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Dashboard from './pages/Dashboard';
-import { Overview } from './pages/Overview';
+import LandingPage from './pages/LandingPage';
+import SkipDashboard from './pages/SkipDashboard';
 
 export default function App() {
   return (
@@ -13,8 +13,8 @@ export default function App() {
         padding: 0
       }}>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/overview" element={<Overview />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/skip-dashboard" element={<SkipDashboard />} />
         </Routes>
       </div>
     </BrowserRouter>
